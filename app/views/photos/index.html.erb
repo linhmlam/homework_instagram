@@ -6,13 +6,14 @@
     <th>Caption</th>
     <th colspan="3">Actions</th>
   </tr>
-<% @list_of_photos.each do |photo| %>
+<%= @list_of_photos.each do |photo| %>
   <tr>
     <td>
       <img src="<%= photo.source %>" width="80">
     </td>
     <td>
       <%= photo.caption %>
+      <!-- Why does this not require an "@" at the front of it?  -->
     </td>
     <td>
       <a href="http://localhost:3000/photo_details/<%= photo.id %>">Show</a>
