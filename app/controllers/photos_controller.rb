@@ -25,10 +25,24 @@ class PhotosController < ApplicationController
 
   def destroy
     @photo_to_delete = Photo.find_by({ :id => params["id"] })
-    @photo_to_delete.source
     @photo_to_delete.caption
     @photo_to_delete.destroy
+  end
 
+  def edit_form
+    @photo = Photo.find_by({ :id => params["id"] })
+    @photo.source
+    @photo.caption
+    @photo.id
+
+    # Do I need to do the above? @photo.action?
+  end
+
+  def update_row
+    @update_photo = Photo.find_by({ :id => params["id"]})
+    @update_photo.source = params[:the_source]
+    @update_photo.caption = params[:the_caption]
+    @update_photo.save
   end
 
 end
